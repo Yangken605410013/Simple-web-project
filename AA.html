@@ -1,0 +1,99 @@
+<body>
+設定速度 : <input type="text" id="setVelocity" value="" onclick="chanVelocity();"/></input><br/>
+當前的行車速度是:<meter value="10" min="0" max="220" low="0" high="160" id="car"> 
+
+
+</meter>公里/小時。<br /> 
+任務完成比例：<progress draggable="true" value="0" max="100" id="task"></progress> 
+
+<div id="prompt"> 
+若是普通元素要變成可拖動的 要把draggable 屬性設定為true，draggable="true" 
+</div> 
+<button class="box" id="addbutton" onclick="including();">點我增加</button> 
+<button class="box" id="debutton" onclick="including1();">點我減少</button> 
+<button class="box" id="reset" onclick="including2();">重新開始</button> 
+
+
+
+</body> 
+</html> 
+<style> 
+box { 
+width: 300px; 
+height: 70px; 
+background-color: #eceaab; 
+border:double 5px red; 
+
+} 
+</style> 
+<script> 
+
+function chanVelocity(){ //這部分你可以自己想想看要怎麼寫
+
+var velocity = document.getElementById("setVelocity");  
+document.getElementById("setValocity").value = Aftervelocity; 
+
+}
+
+function including() { //行車速度加10
+/*第一種寫法
+var speed = document.getElementById("car"); 
+var Aftervalue = speed.value+10; 
+document.getElementById("car").value = Aftervalue; 
+
+*/
+
+/*第二種寫法*/
+/*
+var speed = document.getElementById("car"); 
+document.getElementById("car").value = speed.value+10; 
+
+*/
+
+/*第三種寫法*/
+document.getElementById("car").value = document.getElementById("car").value+10; 
+
+//算任務完成比例
+var getTask = document.getElementById("car"); 
+var calTask = getTask.value%100;
+if(calTask>=100){
+
+	calTask  = 1000;
+
+}
+
+document.getElementById("task").value = calTask; 
+} 
+
+function including1() { //行車速度減10
+/*第一種寫法
+var speed = document.getElementById("car"); 
+var Aftervalue = speed.value+10; 
+document.getElementById("car").value = Aftervalue; 
+
+*/
+
+/*第二種寫法*/
+var speed = document.getElementById("car"); 
+document.getElementById("car").value = speed.value-10; 
+
+//算任務完成比例
+var getTask = document.getElementById("car"); 
+var calTask = getTask.value%100;
+if(calTask>=100){
+
+	calTask  = 100;
+
+}
+document.getElementById("task").value = calTask; 
+
+} 
+
+function including2() { //行車速度初始為0
+
+document.getElementById("car").value = 0; 
+document.getElementById("task").value = 0; 
+} 
+
+
+</script>

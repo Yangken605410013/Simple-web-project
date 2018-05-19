@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="Big5" /> 
+<title></title> 
+</head> 
+<body> 
+當前的行車速度是:<meter value="0" min="0" max="220" low="0" high="160" id="car"> 
+
+</meter>公里/小時。<br /> 
+任務完成比例：<progress draggable="true" value="30" max="100" id="task"></progress> 
+
+<div id="prompt"> 
+若是普通元素要變成可拖動的 要把draggable 屬性設定為true，draggable="true" 
+</div> 
+<button class="box" onclick="including()">點我增加</button> 
+<button class="box" onclick="delete1()">點我減少</button> 
+
+</body> 
+<script> 
+
+var speed = document.getElementById("car");
+function including() { 
+document.getElementById("car").value = speed.value + 10; 
+} 
+function delete1(){ 
+document.getElementById("car").value = speed.value - 10; 
+}
+</script> 
+</html> 
+</html>
